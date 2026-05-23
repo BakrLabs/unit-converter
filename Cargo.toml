@@ -1,0 +1,12 @@
+[package]
+name = "unit_converter"
+version = "0.3.0"
+edition = "2021"
+
+[dependencies]
+colored = "2.1.0"
+clap = { version = "4.5", features = ["derive"] }
+thiserror = "1.0"
+evalexpr = "11"
+rustyline = "14.0.0"
+regex = "1.10.4"
