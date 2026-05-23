@@ -43,24 +43,20 @@ fn evaluate_math(expr: &str) -> Result<f64, AppError> {
     }
 }
 
-// دالة تنسيق ذكية للتعامل مع الأرقام الصغيرة والكبيرة
 fn format_number(value: f64) -> String {
     if value == 0.0 {
         return "0".to_string();
     }
 
     let abs_val = value.abs();
-
-    // تحديد عدد المنازل العشرية بناءً على حجم الرقم
     let formatted = if abs_val < 0.01 {
-        format!("{:.8}", value) // أرقام صغيرة جداً: عرض حتى 8 منازل عشرية
+        format!("{:.8}", value)
     } else if abs_val >= 1000.0 {
-        format!("{:.2}", value) // أرقام كبيرة: رقمين عشريين
+        format!("{:.2}", value)
     } else {
-        format!("{:.4}", value) // أرقام متوسطة: 4 منازل عشرية
+        format!("{:.4}", value)
     };
 
-    // إزالة الأصفار الزائدة من اليمين (مثل 1.000 -> 1) وإزالة النقطة إذا أصبحت في النهاية
     formatted
         .trim_end_matches('0')
         .trim_end_matches('.')
@@ -69,8 +65,6 @@ fn format_number(value: f64) -> String {
 
 fn main() {
     let cli = Cli::parse();
-
-    // إصلاح Clippy: استخدام if let بدلاً من is_some و unwrap
     if let (Some(category), Some(value_expr), Some(from)) =
         (cli.category, cli.value_expr, cli.from)
     {

@@ -10,7 +10,9 @@ impl FromStr for MassUnit {
     type Err = AppError;
     fn from_str(unit: &str) -> Result<Self, Self::Err> {
         match unit.to_lowercase().as_str() {
-            "mg" | "milligram" => Ok(MassUnit::Mg), "g" | "gram" => Ok(MassUnit::G), "kg" | "kilogram" => Ok(MassUnit::Kg),
+            "mg" | "milligram" | "milligrams" => Ok(MassUnit::Mg),
+"g" | "gram" | "grams" => Ok(MassUnit::G),
+"kg" | "kilogram" | "kilograms" => Ok(MassUnit::Kg),
             _ => { let suggestion = suggest_unit(unit, Self::valid_str_units()); match suggestion { Some(s) => Err(AppError::InvalidUnitWithSuggestion(unit.to_string(), s)), None => Err(AppError::InvalidUnit(unit.to_string())) } }
         }
     }
@@ -22,5 +24,5 @@ impl LinearUnit for MassUnit {
     fn to_base(&self, value: f64) -> f64 { match self { MassUnit::Mg => value / 1000.0, MassUnit::G => value, MassUnit::Kg => value * 1000.0 } }
     fn convert_from_base(&self, value: f64) -> f64 { match self { MassUnit::Mg => value * 1000.0, MassUnit::G => value, MassUnit::Kg => value / 1000.0 } }
     fn variants() -> &'static [Self] { &[MassUnit::Mg, MassUnit::G, MassUnit::Kg] }
-    fn valid_str_units() -> &'static [&'static str] { &["mg", "milligram", "g", "gram", "kg", "kilogram"] }
+    fn valid_str_units() -> &'static [&'static str] { &["mg", "milligram", "milligrams", "g", "gram", "grams", "kg", "kilogram", "kilograms"] }
 }

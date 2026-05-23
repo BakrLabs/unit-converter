@@ -10,7 +10,10 @@ impl FromStr for DistanceUnit {
     type Err = AppError;
     fn from_str(unit: &str) -> Result<Self, Self::Err> {
         match unit.to_lowercase().as_str() {
-            "mm" | "millimeter" => Ok(DistanceUnit::Mm), "cm" | "centimeter" => Ok(DistanceUnit::Cm), "m" | "meter" => Ok(DistanceUnit::M), "km" | "kilometer" => Ok(DistanceUnit::Km),
+"mm" | "millimeter" | "millimeters" => Ok(DistanceUnit::Mm),
+"cm" | "centimeter" | "centimeters" => Ok(DistanceUnit::Cm),
+"m" | "meter" | "meters" => Ok(DistanceUnit::M),
+"km" | "kilometer" | "kilometers" => Ok(DistanceUnit::Km),
             _ => { let suggestion = suggest_unit(unit, Self::valid_str_units()); match suggestion { Some(s) => Err(AppError::InvalidUnitWithSuggestion(unit.to_string(), s)), None => Err(AppError::InvalidUnit(unit.to_string())) } }
         }
     }
@@ -22,5 +25,5 @@ impl LinearUnit for DistanceUnit {
     fn to_base(&self, value: f64) -> f64 { match self { DistanceUnit::Mm => value / 1000.0, DistanceUnit::Cm => value / 100.0, DistanceUnit::M => value, DistanceUnit::Km => value * 1000.0 } }
     fn convert_from_base(&self, value: f64) -> f64 { match self { DistanceUnit::Mm => value * 1000.0, DistanceUnit::Cm => value * 100.0, DistanceUnit::M => value, DistanceUnit::Km => value / 1000.0 } }
     fn variants() -> &'static [Self] { &[DistanceUnit::Mm, DistanceUnit::Cm, DistanceUnit::M, DistanceUnit::Km] }
-    fn valid_str_units() -> &'static [&'static str] { &["mm", "millimeter", "cm", "centimeter", "m", "meter", "km", "kilometer"] }
+    fn valid_str_units() -> &'static [&'static str] { &["mm", "millimeter", "millimeters", "cm", "centimeter", "centimeters", "m", "meter", "meters", "km", "kilometer", "kilometers"] }
 }
