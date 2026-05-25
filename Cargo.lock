@@ -360,6 +360,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "67b1b7a3b5fe4f1376887184045fcf45c69e92af734b7aaddc05fb777b6fbd03"
 
 [[package]]
+name = "smart-unit-converter"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "colored",
+ "evalexpr",
+ "regex",
+ "rustyline",
+ "thiserror",
+]
+
+[[package]]
 name = "strsim"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -413,18 +425,6 @@ name = "unicode-width"
 version = "0.1.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7dd6e30e90baa6f72411720665d41d89b9a3d039dc45b8faea1ddd07f617f6af"
-
-[[package]]
-name = "unit_converter"
-version = "0.3.0"
-dependencies = [
- "clap",
- "colored",
- "evalexpr",
- "regex",
- "rustyline",
- "thiserror",
-]
 
 [[package]]
 name = "utf8parse"

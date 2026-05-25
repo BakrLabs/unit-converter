@@ -1,7 +1,20 @@
 [package]
-name = "unit_converter"
-version = "0.3.0"
+name = "smart-unit-converter"
+version = "0.1.0"
 edition = "2021"
+authors = ["BakrLabs drs.developers@proton.me"]
+description = "A context-aware, highly intuitive command-line unit converter written in Rust that understands natural language."
+documentation = "https://docs.rs/smart-unit-converter"
+readme = "README.md"
+homepage = "https://github.com/BakrLabs/unit-converter"
+repository = "https://github.com/BakrLabs/unit-converter"
+license = "Apache 2.0"
+keywords = ["converter", "units", "cli", "natural-language", "rust"]
+categories = ["command-line-utilities", "science"]
+
+[[bin]]
+name = "suc"
+path = "src/main.rs"
 
 [dependencies]
 colored = "2.1.0"

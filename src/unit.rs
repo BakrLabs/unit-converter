@@ -2,6 +2,8 @@ use std::fmt;
 use std::str::FromStr;
 use crate::errors::AppError;
 
+/// A trait for units that follow a linear conversion scale (e.g., Distance, Mass).
+/// Provides a standardized way to convert to and from a base unit.
 pub trait LinearUnit: FromStr<Err = AppError> + fmt::Display + Copy + Clone + PartialEq + 'static {
     fn to_base(&self, value: f64) -> f64;
     fn convert_from_base(&self, value: f64) -> f64; // تم تغيير الاسم لإرضاء Clippy

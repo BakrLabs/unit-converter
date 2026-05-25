@@ -30,7 +30,8 @@ struct Cli {
     from: Option<String>,
     to: Option<String>,
 }
-
+/// Evaluates a mathematical expression string and returns the result as f64.
+/// Supports both integers and floats safely.
 fn evaluate_math(expr: &str) -> Result<f64, AppError> {
     match eval(expr) {
         Ok(Value::Float(f)) => Ok(f),
@@ -42,7 +43,8 @@ fn evaluate_math(expr: &str) -> Result<f64, AppError> {
         ))),
     }
 }
-
+/// Smart number formatter that adjusts decimal precision.
+/// Displays up to 8 decimals for tiny numbers and removes trailing zeros for large ones.
 fn format_number(value: f64) -> String {
     if value == 0.0 {
         return "0".to_string();
@@ -62,7 +64,8 @@ fn format_number(value: f64) -> String {
         .trim_end_matches('.')
         .to_string()
 }
-
+/// The main entry point for the Smart Unit Converter.
+/// Supports both interactive REPL mode and direct CLI arguments.
 fn main() {
     let cli = Cli::parse();
     if let (Some(category), Some(value_expr), Some(from)) =
@@ -176,7 +179,7 @@ fn main() {
     }
     let _ = rl.save_history("history.txt");
 }
-
+/// Executes the conversion logic based on the category and units provided.
 fn execute_conversion(category: &str, value: f64, from_str: &str, to_str: Option<&str>) {
     match category.to_lowercase().as_str() {
         "speed" => process_linear::<speed::SpeedUnit>(value, from_str, to_str),
