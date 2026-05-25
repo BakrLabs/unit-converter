@@ -8,7 +8,7 @@ documentation = "https://docs.rs/smart-unit-converter"
 readme = "README.md"
 homepage = "https://github.com/BakrLabs/unit-converter"
 repository = "https://github.com/BakrLabs/unit-converter"
-license = "Apache 2.0"
+license = "Apache-2.0"
 keywords = ["converter", "units", "cli", "natural-language", "rust"]
 categories = ["command-line-utilities", "science"]
 
