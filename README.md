@@ -19,9 +19,26 @@ It doesn't just calculate; it understands what you mean. Type naturally, use mat
   - *Example:* `5 km` converts to meters, cm, and mm simultaneously.
 - **🤖 Smart Error Suggestions:** Made a typo? The fuzzy matcher will suggest the correct unit.
   - *Example:* `distance 5 kilo m` → `Invalid unit: 'kilo'. Did you mean 'kilometer'?`
+- **🗣️ Plurals Support:** Understands natural language plurals.
+  - *Example:* `100 kilometers to meters`
 - **📐 Smart Number Formatting:** Automatically adjusts decimal precision for tiny numbers (e.g., `0.00001 km`) and large numbers.
 - **⏳ Persistent History:** Use Up/Down arrows to navigate command history (powered by `rustyline`). History survives app restarts!
 - **⚡ Dual Mode:** Use it interactively (REPL) or directly from the command line (CLI) via `clap`.
+
+---
+
+## 📚 Supported Categories & Units
+
+| Category | Supported Units (Abbreviations & Names) |
+|----------|-----------------|
+| **Speed** | `kmh`, `km/h`, `ms`, `m/s`, `mph` |
+| **Temp** | `c`, `celsius`, `k`, `kelvin`, `f`, `fahrenheit` |
+| **Distance**| `mm`, `cm`, `m`, `km`, `millimeter(s)`, `centimeter(s)`, `meter(s)`, `kilometer(s)` |
+| **Mass** | `mg`, `g`, `kg`, `milligram(s)`, `gram(s)`, `kilogram(s)` |
+| **Volume** | `ml`, `l`, `gal`, `milliliter(s)`, `liter(s)`, `gallon(s)` |
+| **Time** | `s`, `sec(s)`, `min(s)`, `h`, `hr(s)`, `hour(s)` |
+| **Area** | `sqm`, `m2`, `sqkm`, `km2`, `acre(s)` |
+| **Storage**| `b`, `kb`, `mb`, `gb`, `byte(s)`, `kilobyte(s)`, `megabyte(s)`, `gigabyte(s)` |
 
 ---
 
@@ -57,7 +74,7 @@ Type 'help' for examples | Type 'exit' to quit
 > how many meters are in 5 kilometers
 5 km → 5000 m
 
-> convert 100 c to f
+> convert 100 celsius to fahrenheit
 100 °C → 212 °F
 
 > distance 5+3 km m

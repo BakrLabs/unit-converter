@@ -112,26 +112,31 @@ fn main() {
                     continue;
                 }
 
-                if input == "help" {
+                                if input == "help" {
                     println!("{}", "╔══════════════════════════════════════════╗".bright_green());
                     println!("{}", "║        SMART UNIT CONVERTER HELP         ║".bright_green());
                     println!("{}", "╚══════════════════════════════════════════╝".bright_green());
+
+                    println!("\n{}", "📚 Supported Categories & Units:".bright_yellow());
+                    println!("  {} speed     : kmh, km/h, ms, m/s, mph", "•".bright_cyan());
+                    println!("  {} temp      : c, celsius, k, kelvin, f, fahrenheit", "•".bright_cyan());
+                    println!("  {} distance  : mm, cm, m, km, millimeter(s), centimeter(s), meter(s), kilometer(s)", "•".bright_cyan());
+                    println!("  {} mass      : mg, g, kg, milligram(s), gram(s), kilogram(s)", "•".bright_cyan());
+                    println!("  {} volume    : ml, l, gal, milliliter(s), liter(s), gallon(s)", "•".bright_cyan());
+                    println!("  {} time      : s, sec(s), min(s), h, hr(s), hour(s)", "•".bright_cyan());
+                    println!("  {} area      : sqm, m2, sqkm, km2, acre(s)", "•".bright_cyan());
+                    println!("  {} storage   : b, kb, mb, gb, byte(s), kilobyte(s), megabyte(s), gigabyte(s)", "•".bright_cyan());
 
                     println!("\n{}", "🧠 I am context-aware! Just type naturally:".bright_yellow());
                     println!("  speed 72 kmh to ms");
                     println!("  how many meters are in 5 kilometers");
                     println!("  convert 100 celsius to fahrenheit");
-                    println!("  I want to know 50mph in kmh");
                     println!("  5km m   (Short format)");
                     println!("  5km     (Auto-convert to all distance units)");
 
                     println!("\n{}", "🧮 Math Expressions:".bright_yellow());
-                    println!("  You can calculate and convert at the same time!");
                     println!("  distance 5+3 km m");
                     println!("  speed 100/2 mph kmh");
-
-                    println!("\n{}", "📚 Categories:".bright_yellow());
-                    println!("  speed, temp, distance, mass, volume, time, area, storage");
 
                     println!("\n{}", "🛠️ Commands:".bright_yellow());
                     println!("  list, history, exit");
