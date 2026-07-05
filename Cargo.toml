@@ -1,15 +1,13 @@
 [package]
 name = "smart-unit-converter"
-version = "0.1.1"
+version = "1.0.0"
 edition = "2021"
-authors = ["BakrLabs drs.developers@proton.me"]
+authors = ["BakrLabs <your-email@example.com>"]
 description = "A context-aware, highly intuitive command-line unit converter written in Rust that understands natural language."
-documentation = "https://docs.rs/smart-unit-converter"
 readme = "README.md"
-homepage = "https://github.com/BakrLabs/unit-converter"
 repository = "https://github.com/BakrLabs/unit-converter"
-license = "Apache-2.0"
-keywords = ["converter", "units", "cli", "natural-language", "rust"]
+license = "Apache 2.0"
+keywords = ["converter", "units", "cli", "currency", "rust"]
 categories = ["command-line-utilities", "science"]
 
 [[bin]]
@@ -23,3 +21,6 @@ thiserror = "1.0"
 evalexpr = "11"
 rustyline = "14.0.0"
 regex = "1.10.4"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
