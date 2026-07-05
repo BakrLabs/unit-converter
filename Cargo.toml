@@ -6,7 +6,7 @@ authors = ["BakrLabs <your-email@example.com>"]
 description = "A context-aware, highly intuitive command-line unit converter written in Rust that understands natural language."
 readme = "README.md"
 repository = "https://github.com/BakrLabs/unit-converter"
-license = "Apache 2.0"
+license = "Apache-2.0"
 keywords = ["converter", "units", "cli", "currency", "rust"]
 categories = ["command-line-utilities", "science"]
 
